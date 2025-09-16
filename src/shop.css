@@ -1,0 +1,373 @@
+html,
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+:root {
+  --indigo: #10323c;
+  --kruiz-text: #111;
+  --kruiz-muted: #666;
+  --kruiz-border: #e5e5e5;
+  --kruiz-bg: #fff;
+  --kruiz-accent: #111;
+  --accent: #18f5f2;
+  --kruiz-orange: #f5af58;
+}
+
+
+.loop-product__title,
+.price,
+.button,
+.travel-title,
+.return-to-shop,
+.wishlist-title {
+  font-family: "Nunito", sans-serif;
+}
+
+
+.kruiz-container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 16px 16px;
+  color: var(--kruiz-text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.kruiz-container .shirt-pic-container {
+  margin-left: -19vw;
+  margin-right: -19vw;
+}
+
+.shirt-pic-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+
+.picture {
+  display: block;
+  width: 100%;
+  height: clamp(1020px, 40vw, 520px);
+  object-fit: cover;
+}
+
+
+.travel-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.travel-title p {
+  margin-top: 50px;
+  margin-bottom: 0;
+}
+
+.travel-title p+p {
+  margin-top: 10px;
+  margin-bottom: 80px;
+}
+
+.travel {
+  color: var(--indigo);
+  font-weight: 550;
+  font-size: 65px;
+  line-height: 1;
+}
+
+
+.kruiz-shop-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+
+.kruiz-controls { /* haha get it*/
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.kruiz-label {
+  font-size: 14px;
+  color: var(--kruiz-muted);
+}
+
+
+.select-menu {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  padding: 6px 10px;
+}
+
+
+.kruiz-results {
+  color: var(--kruiz-muted);
+  font-size: 14px;
+  margin: 8px 0 16px 0;
+}
+
+
+.loading {
+  padding: 24px 24px 24px;
+  text-align: center;
+}
+
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product {
+  background: var(--kruiz-bg);
+  padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+
+.product .product-thumb {
+  position: relative;
+  padding-top: 100%;
+  background: #f3f3f3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.product .product-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .2s ease;
+}
+
+.product:hover .product-thumb img {
+  transform: scale(1.03);
+}
+
+
+.loop-product__title {
+  margin: 10px 0 4px;
+  line-height: 1.25;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 0;
+  color: var(--accent);
+}
+
+
+.wish-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform .15s ease;
+}
+
+.wish-btn:hover {
+  transform: translateY(-1px);
+}
+
+.wish-btn:hover ion-icon {
+  --ionicon-stroke-width: 40px;
+}
+
+.wish-btn ion-icon {
+  font-size: 22px;
+  color: var(--kruiz-orange);
+}
+.wish-btn.is-liked ion-icon {
+  color: var(--kruiz-orange);
+}
+
+.button-container {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.button.add_to_cart_button {
+  margin-top: 8px;
+  padding: 10px 12px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: var(--header-bg);
+  font-size: 15px;
+  cursor: pointer;
+  color: var(--accent);
+}
+
+.button.add_to_cart_button:hover {
+  background-color: var(--kruiz-orange);
+  color: #fff;
+}
+
+.button.quick_view_button {
+  margin-top: 8px;
+  border-radius: 3px;
+  padding: 10px 10px;
+  border: 1px solid var(--indigo);
+  background-color: #fff;
+  color: var(--indigo);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.button.button.quick_view_button:hover {
+  opacity: .9;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 80%;
+  max-width: 400px;
+  padding: 24px;
+  background: #fff;
+  text-align: center;
+  border-radius: 1px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .2);
+}
+
+.modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.modal-wishlist,
+.modal-dismiss {
+  padding: 10px;
+  border: 0;
+  border-radius: 3px;
+  background: #e3e3e3;
+  cursor: pointer;
+}
+
+.return-to-shop {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: var(--indigo);
+  color: var(--accent);
+  font-size: 14px;
+  margin-right: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.return-to-shop:hover {
+  color: #fff;
+  background-color: var(--kruiz-orange);
+}
+
+.wishlist-title {
+  color: var(--indigo);
+  font-size: 40px;
+  font-weight: 550;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 8px;
+}
+
+.pagination .page-numbers {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.pagination .page-numbers .current {
+  padding: 6px 10px;
+  border: 1px solid var(--kruiz-border);
+  border-radius: 8px;
+}
+
+.pagination .page-numbers button {
+  background: #fff;
+  border: 1px solid var(--kruiz-border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.pagination .page-numbers button:disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+@media (max-width:1024px) {
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .return-to-shop {
+    padding: 6px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width:640px) {
+  .products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .shirt-pic-container {
+    grid-template-columns: 1fr;
+  }
+
+  .picture {
+    height: auto;
+  }
+
+  .kruiz-container .shirt-pic-container {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
